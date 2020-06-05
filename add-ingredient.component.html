@@ -1,0 +1,43 @@
+<app-admin-portal></app-admin-portal>
+<div class="center">
+    <h1>Add Ingredients</h1>
+    <form [formGroup]="ingredientForm" (ngSubmit)="onIngredientSubmit(ingredientForm.value)"
+    (keydown.enter)=" $event.preventDefault()">
+        <div>
+            
+            <label for="name" class="label">
+                Name of Ingredient:
+            </label>
+            <input type="text" formControlName="name" id="name" />
+        </div>
+
+        <div>
+            <label class="label" for="imageUrl">
+                imageUrl :
+            </label>
+            <input type="text" formControlName="image" id="image" />
+        </div>
+
+        <div>
+            <label class="label" for="density">
+                density :
+            </label>
+            <input type="text"  formControlName="density" id="density">
+        </div>
+        <button class="button" type="submit">Submit</button>
+
+        <select (change)="onEmployeeSelected2($event)">
+            <option *ngFor="let meas of measurementArray" [value]="meas.measurementName">
+                {{meas.measurementName}}
+            </option>
+        </select>
+
+        <select  (change)="onEmployeeSelected1($event)">
+            <option  *ngFor="let cat of categoryArray" [value]="cat.name">
+                {{cat.name}}
+            </option>
+        </select>
+
+
+    </form>
+</div>
